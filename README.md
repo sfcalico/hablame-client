@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Unit 3 Solo Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview ##
 
-## Available Scripts
+Háblame is a resource for learners of Spanish that pulls resources from Merriam Webster's dictionaryAPI and Linguatool from RapidAPI to look up translations as well as Spanish collocations and example sentences for those phrases. Users can save collocations they find useful for later reference.
 
-In the project directory, you can run:
+## WireFrames ##
 
-### `npm start`
+![login-page](/wireframes/LoginPage.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![signup-page](./wireframes/SingupPage.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![home-page](./wireframes/HomePage.png)
 
-### `npm test`
+![collocation-page](./wireframes/CollocationPage.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-- Stretch Goal Pages --
 
-### `npm run build`
+![news-page](./wireframes/NewsPage.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![resource-page](./wireframes/ResourcePage.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ERD ##
 
-### `npm run eject`
+![ERD-graphic](./ERD.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Component Tree ##
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![component-tree](./wireframes/ComponentTree.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Backend Routes Inventory ##
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[1] app.post('/users', ...)                 // create user 
+[2] app.post('/users/login', ...)           // login user
+[3] app.get('/words', ...)                  // search translations
+[4] app.get('/collocations', ...)           // search collocations
+[5] app.post('/users/collocation', ...)     // save collocation
+[6] app.delete('/users/collocation', ...)   // delete collocation
 
-## Learn More
+## User Stories ##
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[1] On landing page, I can either sign up or login
+[2] On the home page, I see a nav bar on the left, a search tool in the middle to look up word definitions in Spanish, and a separate search tool on the right to look up collocations for specific words in Spanish
+[3] On the home page, I can log out by clicking a button in the nav bar
+[4] In the collocations pane of the home page, I can save specific search results to my account via a button
+[5] On the home page, I can access my saved collocations via a link in the nav bar
+[6] On the collocations page, I can see a list of my saved collocations, if any
+[7] On the collocations page, I can click on a saved collocation and the example sentence will appear on the right
+[8] In the list of saved collocations, I can delete a specific one via a button next to it
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Stretch Goals ##
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[1] Create a static News Page that I can personally update throughout time
+[2] Create a static Resources Page that I can personally update throughout time
+[3] (For after the SEIR) Find APIs for other languages and create the same functionality this app has for students of those languages
