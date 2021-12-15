@@ -6,10 +6,12 @@ const VisitorProvider = ({children}) => {
 
     const [ visitor, setVisitor ] = useState('');
     const [ entry, setEntry ] = useState('');
+    const [ email, setEmail ] = useState('');
 
     const state = {
         visitorState: [ visitor, setVisitor ],
-        entryState: [ entry, setEntry ]
+        entryState: [ entry, setEntry ],
+        emailState: [ email, setEmail ]
     }
 
     return (
