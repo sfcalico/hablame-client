@@ -49,6 +49,15 @@ Háblame is a resource for learners of Spanish that pulls resources from Merriam
 - On the collocations page, I can click on a saved collocation and the example sentence will appear on the right
 - In the list of saved collocations, I can delete a specific one via a button next to it
 
+## MVP Checklist ##
+- Users can sign up, login, and logout
+- Users can use the dictionaryAPI to search for Spanish translations of English words
+- Users can use the linguatools API to search collocations for Spanish words
+- Users can save collocation-exampleSentence pairs to their profile
+- Users can access their saved collocations via the navigation bar
+- When users click on one of their saved collocations, the paired example sentence will appear
+- Users can delete saved collocations from their profile
+
 
 ## Stretch Goals ##
 
