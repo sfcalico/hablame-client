@@ -2,37 +2,93 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Title Bar and Signup Page*/
+.titleBar {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+  align-items: center;
+  background-color:rgb(218, 115, 115);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.titleLinks {
+  display: flex;
+  list-style: none;
+  margin: 5px;
+  padding: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.title {
+  font-size: xx-large;
+  font-style: oblique;
+}
+
+.subtitle {
+  font-style: oblique;
+}
+
+ul li {
+  margin: 10px;
+  display: flex;
+}
+
+.intro {
+  max-width: 600px;
+  display: flex;
+}
+
+.suli-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: left;
 }
 
-.App-link {
-  color: #61dafb;
+/* Home Page: NavBar, DictionaryAPI, Lingatool*/
+.navBar {
+  background-color: rgba(218, 115, 115);
+  /* display: flex; */
+  width: 200px;
+  margin: 10px;
+}
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  list-style: none;
+  align-items: flex-start;
+}
+.grid-container {
+  display: grid;
+}
+.homeSections {
+  display: inline-grid; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Collocations Page*/
+
+.colloc-forms {
+  display: table-row;
+}
+.colloc-container {
+  display: table-row;
+}
+.saved-list {
+  display: table-row;
+  border: 1px solid rgb(37, 37, 37);
+}
+
+.examples {
+  display: table-row;
+  border: 1px solid rgb(37, 37, 37);
+}
+
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(58, 133, 58);
+  margin: 10px;
+  width: 100%;
+  font-style: oblique;
 }

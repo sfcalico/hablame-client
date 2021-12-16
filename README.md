@@ -36,6 +36,7 @@ Háblame is a resource for learners of Spanish that pulls resources from Merriam
 - app.get('/words', ...)                  // search translations
 - app.get('/collocations', ...)           // search collocations
 - app.post('/users/collocation', ...)     // save collocation
+- app.get('/users/collocation', ...)      // get saved collocation(s)
 - app.delete('/users/collocation', ...)   // delete collocation
 
 ## User Stories ##
@@ -62,6 +63,7 @@ Háblame is a resource for learners of Spanish that pulls resources from Merriam
 ## Stretch Goals ##
 
 - Use .env for backend URL
+- Verify user login
 - Create a static News Page that I can personally update throughout time
 - Create a static Resources Page that I can personally update throughout time
 - (For after the SEIR) Find APIs for other languages and create the same functionality this app has for students of those languages
