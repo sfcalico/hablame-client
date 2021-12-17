@@ -5,8 +5,8 @@ import { VisitorContext } from "../context/VisitorContext";
 
 const Signup = () => {
     
-    const { visitorState, emailState, nameState, passwordState } = useContext(VisitorContext);
-    const [ setVisitor ] = visitorState;
+    const { emailState, nameState, passwordState } = useContext(VisitorContext);
+    // const [ setVisitor ] = visitorState;
     const [ name, setName ] = nameState;
     const [ email, setEmail ] = emailState;
     const [ password, setPassword ] = passwordState;
@@ -18,7 +18,7 @@ const Signup = () => {
             .then((response) => {
                 console.log(response);
                 localStorage.setItem('userId', response.data.user.id);
-                setVisitor(response.data.user);
+                setName(response.data.user.name);
             })
             .catch((error) => {
                 setEmailError(error.message);
@@ -27,7 +27,7 @@ const Signup = () => {
     }
 
     return (
-        <>
+        <div>
             <h3 className="welcomeMsg">Welcome to Háblame, a resource for beginner to intermediate students of Spanish.</h3>
             <h5 className="intro">In addition to serving as an online English-Spanish dictionary, which doesn't make us special, we have integrated an API from Linguatools that looks up collocations - that's to say: idiomatic expressions - in Spanish. Maybe the translation you get from the dictionary is a little ambiguous, as often may be the case. Look up that word in the collocation database and get back phrases the word is used in and example sentences for full context. We hope you find this of use!</h5>
 
@@ -54,7 +54,7 @@ const Signup = () => {
                     {/* </Link> */}
                 </div>
             </form>
-        </>
+        </div>
     )
 }
 

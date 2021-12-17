@@ -9,6 +9,7 @@
   margin: 10px;
   align-items: center;
   background-color:rgb(218, 115, 115);
+  border: 2px solid rgb(37, 37, 37);
 }
 
 .titleLinks {
@@ -46,6 +47,7 @@ ul li {
 /* Home Page: NavBar, DictionaryAPI, Lingatool*/
 .navBar {
   background-color: rgba(218, 115, 115);
+  border: 2px solid rgb(37, 37, 37);
   /* display: flex; */
   width: 200px;
   margin: 10px;
@@ -63,6 +65,18 @@ ul li {
 .homeSections {
   display: inline-grid; 
 }
+.search-results {
+  display: flex;
+  width: 350px;
+  height: 400px;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 8px;
+  margin: 10px;
+  justify-items: left;
+  flex-direction: column;
+
+}
+
 
 /* Collocations Page*/
 
@@ -74,11 +88,13 @@ ul li {
 }
 .saved-list {
   display: table-row;
+  float:left;
   border: 1px solid rgb(37, 37, 37);
 }
 
 .examples {
   display: table-row;
+  float:inline-end;
   border: 1px solid rgb(37, 37, 37);
 }
 
@@ -87,7 +103,7 @@ ul li {
 .footer {
   position: fixed;
   bottom: 0;
-  background-color: rgb(58, 133, 58);
+  background-color: rgb(85, 163, 85);
   margin: 10px;
   width: 100%;
   font-style: oblique;

@@ -1,4 +1,4 @@
-const Collocations = () => {
+const Collocations = (props) => {
     return (
         <div className="colloc-container">
             <div className="savedList">

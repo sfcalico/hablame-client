@@ -31,13 +31,11 @@ Háblame is a resource for learners of Spanish that pulls resources from Merriam
 
 ## Backend Routes Inventory ##
 
-- app.post('/users', ...)                 // create user 
-- app.post('/users/login', ...)           // login user
-- app.get('/words', ...)                  // search translations
-- app.get('/collocations', ...)           // search collocations
-- app.post('/users/collocation', ...)     // save collocation
-- app.get('/users/collocation', ...)      // get saved collocation(s)
-- app.delete('/users/collocation', ...)   // delete collocation
+- app.post('/users', ...)                                // create user 
+- app.post('/users/login', ...)                          // login user
+- app.post('/users/collocation', ...)                    // save collocation
+- app.get('/users/collocation', ...)                     // get saved collocation(s)
+- app.delete('/users/collocation/:collocationId', ...)   // delete collocation
 
 ## User Stories ##
 
@@ -55,8 +53,8 @@ Háblame is a resource for learners of Spanish that pulls resources from Merriam
 - Users can use the dictionaryAPI to search for Spanish translations of English words
 - Users can use the linguatools API to search collocations for Spanish words
 - Users can save collocation-exampleSentence pairs to their profile
-- Users can access their saved collocations via the navigation bar
-- When users click on one of their saved collocations, the paired example sentence will appear
+- Users can access their saved collocations via the navigation bar **
+- When users click on one of their saved collocations, the paired example sentence will appear **
 - Users can delete saved collocations from their profile
 
 

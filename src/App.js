@@ -30,5 +30,3 @@ function App() {
 }
 
 export default App;
-//https://www.dictionaryapi.com/api/v3/references/spanish/json/language?key=ac630850-7803-474e-aa36-db05619dda38
-//https://www.dictionaryapi.com/api/v3/references/spanish/json/${word we're looking up}?key=ac630850-7803-474e-aa36-db05619dda38
