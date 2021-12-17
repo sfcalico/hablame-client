@@ -7,7 +7,7 @@ const CollocationPage = () => {
     // delete a specific collocation
     const deleteCollocation = async (collocation) => {
         try {
-            let response = await axios.delete(`https://git.heroku.com/habla-me.git/users/collocation`,  { data: {
+            let response = await axios.delete(`https://git.heroku.com/habla-me-api.git/users/collocation`,  { data: {
             word: collocation,
             userId: localStorage.getItem('userId')
         }

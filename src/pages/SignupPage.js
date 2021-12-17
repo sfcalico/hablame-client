@@ -14,7 +14,7 @@ const Signup = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:3001/users`, { name, email, password})
+        axios.post(`http://https://git.heroku.com/habla-me-api.git/users`, { name, email, password})
             .then((response) => {
                 console.log(response);
                 localStorage.setItem('userId', response.data.user.id);
