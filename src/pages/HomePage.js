@@ -74,7 +74,7 @@ const HomePage = () => {
         e.preventDefault();
         const exampleSentences = [collocation[1], collocation[2]];
         console.log(exampleSentences);
-        axios.post(`http://localhost:3001/users/collocation`, {
+        axios.post(`https://git.heroku.com/habla-me.git/users/collocation`, {
             word: palabra,
             phrase: collocation[0],
             example: exampleSentences,
