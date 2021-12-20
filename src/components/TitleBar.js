@@ -11,6 +11,7 @@ const TitleBar = () => {
     const [ password, setPassword] = passwordState;
 
     return (
+        // returns nav element that spans the top of every page
         <nav className='titleBar'>
             <span className='title'>Háblame </span>
             <span className='subtitle'>en español!</span>
@@ -29,7 +30,7 @@ const TitleBar = () => {
                     className='logoutBtn'
                     onClick={() => {
                         localStorage.removeItem('userId');
-                        setUser({});
+                        setUser('');
                         setName('');
                         setEmail('');
                         setPassword('')

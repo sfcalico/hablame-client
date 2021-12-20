@@ -9,42 +9,52 @@ const Collocations = () => {
     const [ user, setUser ] = userState;
     const [ collocationList, setCollocationList ] = useState([]);
     const { id } = useParams();
-    console.log(id);
 
+    // fetch collocations saved by current logged in user
     const fetchCollocations = async (e) => {
-        // e.preventDefault();
         try {
             let response = await axios.get(`http://localhost:3001/collocations/${user.id}`)
             setCollocationList(response.data.collocations)
-            console.log(response);
-            console.log(collocationList);
         } catch (error) {
             console.log(error)
         }
     } 
 
-    // run on page load
+    // run fetch on page load
     useEffect(() => {
         fetchCollocations()
     }, []);
 
+    // delete a specific collocation
+    const deleteCollocation = async (collocationId) => {
+        try {
+            let response = await axios.delete(`http://localhost:3001/users/collocation/${collocationId}}`, { 
+                headers: { Authorization: user.id}
+            })
+        } catch (error) {
+            console.log (error, error.message);
+        }
+    } 
+
     return (
         <div className="colloc-container">
+            {/*returns list of saved collocations*/}
             <div className="savedList">
                 <h3 className="collocTitle">Saved Collocations</h3>
-                <section>
                     { collocationList.map((collocation, i) => {
                         return (
-                            <p key={i} className="listItem">
-                                <Link to={`/collocations/${collocation.id}`} >
-                                    {collocation.phrase}
-                                </Link>
-                            </p>
+                            <section className="list-item">
+                                <p key={i}>
+                                    <Link to={`/collocations/${collocation.id}`} >
+                                        {collocation.phrase}
+                                    </Link>
+                                </p>
+                                <button onClick={() => deleteCollocation(collocation.id) }>-</button>
+                            </section>
                         )
-                    }) }
-                </section>
-                
+                    }) }     
             </div>
+            {/* returns list of example stentences when a collocation is clicked on */}
             <div className="examples">
                 <h3 className="exTitle">Example sentences</h3>
                 <section>

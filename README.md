@@ -31,10 +31,10 @@ Háblame is a resource for learners of Spanish that pulls resources from Merriam
 
 ## Backend Routes Inventory ##
 
-- app.post('/users', ...)                                // create user 
+- app.post('/users/signup', ...)                                // create user 
 - app.post('/users/login', ...)                          // login user
 - app.post('/users/collocation', ...)                    // save collocation
-- app.get('/users/collocation', ...)                     // get saved collocation(s)
+- app.get('/collocations/:userId', ...)                   // get saved collocation(s)
 - app.delete('/users/collocation/:collocationId', ...)   // delete collocation
 
 ## User Stories ##

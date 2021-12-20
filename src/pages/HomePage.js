@@ -19,7 +19,7 @@ const HomePage = () => {
     const [ example, setExample ] = useState('');
     const [ exampleTwo, setExampleTwo ] = useState('');
 
-    // Fetch info from dictionaryAPI
+    // Fetch definitions from dictionaryAPI
     const fetchDefinition = async (e) => {
         e.preventDefault();
         try {
@@ -30,8 +30,7 @@ const HomePage = () => {
         }
     }
     
-    // Fetch collocation info from Linguatool
-    
+    // Fetch collocations and example sentences from Linguatool
     const fetchCollocation = async (e) => {
         e.preventDefault();
         try {
@@ -50,7 +49,7 @@ const HomePage = () => {
     }
 
 
-    // Save first example to userProfile
+    // Save first example sentence to userProfile
     const saveCollocation1 = (e) => {
         e.preventDefault();
         const phrase = collocation;
@@ -64,7 +63,7 @@ const HomePage = () => {
         })
     }
 
-    // Save second sentence to userProfile
+    // Save second example sentence to userProfile
     const saveCollocation2 = (e) => {
         e.preventDefault();
         const phrase = collocation;
@@ -97,14 +96,13 @@ const HomePage = () => {
                 <button onClick={(e) => {setSearch(entry)}}>Search</button>
                 </form>
                 <div className="search-results">
-                    <p>Part of Speech: {wordDef[0]}</p>
-                    <p>Translation: {wordDef[1]}</p>
+                    <p>(part of speech) {wordDef[0]}</p>
+                    <p>(translation) {wordDef[1]}</p>
                 </div>  
             </section>
             <section className="homeSections">
                 <div>
                     <form
-                    // onSubmit={(e) => {fetchCollocation(e)}}
                     className="linguaTool"> 
                     <input 
                         type="text"

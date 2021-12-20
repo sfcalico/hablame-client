@@ -8,6 +8,7 @@ const NavBar = () => {
     const [ name ] = nameState;
 
     return (
+        // returns the nav element that appears on the left of all pages when a user is signed in
         <nav className="navBar">
             <ul className='navLinks'>
                 <li>¡Bienvenido de nuevo, {name}!</li>
@@ -17,10 +18,12 @@ const NavBar = () => {
                 </li>
                     <br />
                 <li className='navLink'>
-                    <Link to="/news">News</Link>
+                    <p>News (coming soon!)</p>
+                    {/*<Link to="/news"> News </Link> */}
                 </li>
                 <li className='navLink'>
-                    <Link to="/resources">Resources</Link>
+                    <p>Resources (coming soon!)</p>
+                    {/*<Link to="/resources"> Resources </Link> */}
                 </li>
             </ul>
         </nav>

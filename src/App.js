@@ -11,8 +11,10 @@ import './App.css';
 
 function App() {
 
+  // user info to check logged in state for conditional rendering of pages
   const { userState } = useContext(VisitorContext);
   const [ user ] = userState;
+
 
   return (
     <div className="App">
@@ -27,7 +29,7 @@ function App() {
 
           <Route path="/collocations" element={ !user ? <Login /> : <CollocationPage /> } />
           
-          <Route path="/collocations/:id" element={ <CollocationPage /> } /> 
+          <Route path="/collocations/:id" element={ !user? <Login /> : <CollocationPage /> } /> 
       </Routes>
       <Footer />
     </div>

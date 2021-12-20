@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const Login = () => {
 
+    // user info
     const { userState, nameState, emailState, passwordState } = useContext(VisitorContext);
     const [ user, setUser ] = userState;
     const [ name, setName ] = nameState;
@@ -11,11 +12,11 @@ const Login = () => {
     const [ password, setPassword ] = passwordState;
     const [ emailError, setEmailError ] = useState();
 
+    // call to local databse to sign in existing user
     const submitForm = async (e) => {
         e.preventDefault();
         try {
             let response = await axios.post(`http://localhost:3001/users/login`,  { email, password })
-            console.log(response);
             localStorage.setItem('userId', response.data.user.id);
             setName(response.data.user.name);
             setUser(response.data.user);
