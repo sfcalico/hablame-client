@@ -4,9 +4,11 @@ import { VisitorContext } from '../context/VisitorContext';
 
 const TitleBar = () => {
 
-    const { visitorState, emailState } = useContext(VisitorContext);
-    const [ setVisitor ] = visitorState;
-    const [ setEmail ] = emailState;
+    const { userState, nameState, emailState, passwordState } = useContext(VisitorContext);
+    const [ user, setUser ] = userState;
+    const [ name, setName ] = nameState;
+    const [ email, setEmail ] = emailState;
+    const [ password, setPassword] = passwordState;
 
     return (
         <nav className='titleBar'>
@@ -15,21 +17,24 @@ const TitleBar = () => {
             
             <ul className="titleLinks">
                 <li>
-                    <Link to="/home">inicio</Link>
+                    <Link to="/home">home</Link>
                 </li>
                 <li>
-                    <Link to="/signup">registrar</Link>
+                    <Link to="/signup">sign up</Link>
                 </li>
                 <li >
-                    <Link to="/login">iniciar sesión</Link>
+                    <Link to="/login">log in</Link>
                 </li>
                 <li
+                    className='logoutBtn'
                     onClick={() => {
-                        localStorage.removeItem('userId')
-                        setVisitor({})
-                        setEmail('')
+                        localStorage.removeItem('userId');
+                        setUser({});
+                        setName('');
+                        setEmail('');
+                        setPassword('')
                     }}>
-                    <Link to="/login">cerrar sesión</Link>
+                    log out
                 </li>
             </ul>
         </nav>

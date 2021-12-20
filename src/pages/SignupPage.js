@@ -1,30 +1,29 @@
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useContext, useState } from "react";
 import { VisitorContext } from "../context/VisitorContext";
+import { useContext, useState } from "react";
+import axios from 'axios';
 
 const Signup = () => {
     
-    const { emailState, nameState, passwordState } = useContext(VisitorContext);
-    // const [ setVisitor ] = visitorState;
+    const { userState, emailState, nameState, passwordState } = useContext(VisitorContext);
+    const [ user, setUser ] = userState;
     const [ name, setName ] = nameState;
     const [ email, setEmail ] = emailState;
     const [ password, setPassword ] = passwordState;
     const [ emailError, setEmailError ] = useState();
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
-        axios.post(`http://https://git.heroku.com/habla-me-api.git/users`, { name, email, password})
-            .then((response) => {
-                console.log(response);
-                localStorage.setItem('userId', response.data.user.id);
-                setName(response.data.user.name);
-            })
-            .catch((error) => {
-                setEmailError(error.message);
-                console.log(emailError);
-            })
+        try {
+            let response = await axios.post(`http://localhost:3001/users/signup`, { name, email, password})
+            localStorage.setItem('userId', response.data.user.id);
+            setName(response.data.user.name);
+            setUser(response.data.user);
+        } catch (error) {
+            setEmailError(error);
+            console.log(emailError);
+        }
     }
+
 
     return (
         <div>
@@ -45,13 +44,11 @@ const Signup = () => {
                     <input value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div>
-                    {/* <Link to="/home"> */}
-                        <input
-                            type="submit" 
-                            value="sign up!" 
-                            className="suli-button"
-                        />
-                    {/* </Link> */}
+                    <button
+                        type="submit" 
+                        className="suli-button">
+                        Sign up!
+                    </button>
                 </div>
             </form>
         </div>

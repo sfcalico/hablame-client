@@ -4,20 +4,26 @@ const VisitorContext = createContext();
 
 const VisitorProvider = ({children}) => {
 
-    const [ visitor, setVisitor ] = useState('');
+    // client info
+    const [ user, setUser ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ name, setName ] = useState('');
     const [ password, setPassword ] = useState('');
+    
+    // client input
     const [ entry, setEntry ] = useState('');
     const [ palabra, setPalabra ] = useState('');
     const [ search, setSearch ] = useState('');
     const [ busca, setBusca ] = useState('');
 
     const state = {
-        visitorState: [ visitor, setVisitor ],
+        // client info states
+        userState: [ user, setUser ],
         emailState: [ email, setEmail ],
         nameState: [ name, setName ],
         passwordState: [ password, setPassword ],
+
+        // client input states
         entryState: [ entry, setEntry ],
         palabraState: [ palabra, setPalabra ],
         searchState: [ search, setSearch ],
