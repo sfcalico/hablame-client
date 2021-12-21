@@ -28,7 +28,7 @@ const Collocations = () => {
     // delete a specific collocation
     const deleteCollocation = async (collocationId) => {
         try {
-            let response = await axios.delete(`http://localhost:3001/users/collocation/${collocationId}}`, { 
+            let response = await axios.delete(`http://localhost:3001/users/collocation/${collocationId}`, { 
                 headers: { Authorization: user.id}
             })
         } catch (error) {
@@ -49,7 +49,7 @@ const Collocations = () => {
                                         {collocation.phrase}
                                     </Link>
                                 </p>
-                                <button onClick={() => deleteCollocation(collocation.id) }>-</button>
+                                <button onClick={() => deleteCollocation(collocation.id) } key={(i+100)}>-</button>
                             </section>
                         )
                     }) }     
@@ -62,7 +62,7 @@ const Collocations = () => {
                         return (
                             <div key={i}>
                                 { collocation.id === parseInt(id) ?
-                                    <p className="example-sentence">
+                                    <p className="example-sentence" key={(i+1000)}>
                                         {collocation.example}
                                     </p> 
                                     :
