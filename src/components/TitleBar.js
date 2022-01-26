@@ -5,10 +5,10 @@ import { VisitorContext } from '../context/VisitorContext';
 const TitleBar = () => {
 
     const { userState, nameState, emailState, passwordState } = useContext(VisitorContext);
-    const [ user, setUser ] = userState;
-    const [ name, setName ] = nameState;
-    const [ email, setEmail ] = emailState;
-    const [ password, setPassword] = passwordState;
+    const [ , setUser ] = userState;
+    const [ , setName ] = nameState;
+    const [ , setEmail ] = emailState;
+    const [ , setPassword] = passwordState;
 
     return (
         // returns nav element that spans the top of every page

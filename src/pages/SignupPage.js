@@ -6,7 +6,7 @@ const Signup = () => {
     
     // user info
     const { userState, emailState, nameState, passwordState } = useContext(VisitorContext);
-    const [ user, setUser ] = userState;
+    const [ , setUser ] = userState;
     const [ name, setName ] = nameState;
     const [ email, setEmail ] = emailState;
     const [ password, setPassword ] = passwordState;
@@ -48,6 +48,7 @@ const Signup = () => {
                 </div>
                 <div>
                     <button
+                        disabled={!email||!password||!name}
                         type="submit" 
                         className="suli-button">
                         Sign up!

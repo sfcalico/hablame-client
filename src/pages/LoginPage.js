@@ -6,8 +6,8 @@ const Login = () => {
 
     // user info
     const { userState, nameState, emailState, passwordState } = useContext(VisitorContext);
-    const [ user, setUser ] = userState;
-    const [ name, setName ] = nameState;
+    const [ , setUser ] = userState;
+    const [ , setName ] = nameState;
     const [ email, setEmail ] = emailState;
     const [ password, setPassword ] = passwordState;
     const [ emailError, setEmailError ] = useState();
@@ -17,6 +17,7 @@ const Login = () => {
         e.preventDefault();
         try {
             let response = await axios.post(`http://localhost:3001/users/login`,  { email, password })
+            console.log(response);
             localStorage.setItem('userId', response.data.user.id);
             setName(response.data.user.name);
             setUser(response.data.user);
@@ -44,7 +45,8 @@ const Login = () => {
                     <input value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div>
-                    <button 
+                    <button
+                        disabled={!email||!password}
                         type="submit"
                         value="Log In!"
                         className="suli-button"> 

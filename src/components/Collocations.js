@@ -6,7 +6,7 @@ import { VisitorContext } from '../context/VisitorContext';
 const Collocations = () => {
     
     const { userState } = useContext(VisitorContext);
-    const [ user, setUser ] = userState;
+    const [ user ] = userState;
     const [ collocationList, setCollocationList ] = useState([]);
     const { id } = useParams();
 
@@ -28,9 +28,10 @@ const Collocations = () => {
     // delete a specific collocation
     const deleteCollocation = async (collocationId) => {
         try {
-            let response = await axios.delete(`http://localhost:3001/users/collocation/${collocationId}`, { 
+            await axios.delete(`http://localhost:3001/users/collocation/${collocationId}`, { 
                 headers: { Authorization: user.id}
             })
+            fetchCollocations();
         } catch (error) {
             console.log (error, error.message);
         }

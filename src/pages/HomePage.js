@@ -24,7 +24,9 @@ const HomePage = () => {
         e.preventDefault();
         try {
             let response = await axios.get(`https://www.dictionaryapi.com/api/v3/references/spanish/json/${search}?key=ac630850-7803-474e-aa36-db05619dda38`)
-            setWordDef([response.data[0].fl, response.data[0].shortdef])
+            console.log(response);
+            setWordDef([response.data[0].fl, response.data[0].shortdef[0], response.data[0].shortdef[1]])
+            console.log(wordDef);
         } catch (error) {
             console.log(error)
         }
@@ -39,10 +41,11 @@ const HomePage = () => {
                 'x-rapidapi-host': 'linguatools-top-spanish-collocations.p.rapidapi.com',
                 'x-rapidapi-key': '503b7bbd65mshd446b8d90cd6cb6p1e8ee0jsne6957715a86f'
                 } 
-            })
-            setCollocation(response.data[0].collocation)
-            setExample(response.data[0].example1)
-            setExampleTwo(response.data[0].example2)
+            });
+            console.log(response);
+            setCollocation(response.data[0].collocation);
+            setExample(response.data[0].example1);
+            setExampleTwo(response.data[0].example2);
         } catch (error) {
             console.log(error, error.message);
         }    
@@ -96,8 +99,11 @@ const HomePage = () => {
                 <button onClick={(e) => {setSearch(entry)}}>Search</button>
                 </form>
                 <div className="search-results">
-                    <p>(part of speech) {wordDef[0]}</p>
-                    <p>(translation) {wordDef[1]}</p>
+                    <p className="def-sections">Part of Speech</p>
+                    <p className="definitions">{wordDef[0]}</p>
+                    <p className="def-sections">Translations </p>
+                    <p className="definitions">{wordDef[1]}</p>
+                    <p className="definitions">{wordDef[2]}</p>
                 </div>  
             </section>
             <section className="homeSections">
@@ -106,18 +112,23 @@ const HomePage = () => {
                     className="linguaTool"> 
                     <input 
                         type="text"
-                        placeholder="Spanish collocations"
+                        placeholder="This API is currently down!"
                         onChange={(e) => {setPalabra(e.target.value)}}
                         value={palabra}
                     />
-                    <button onClick={(e) => fetchCollocation(e)}>Busca</button> 
+                    <button 
+                        disabled={false}
+                        onClick={(e) => fetchCollocation(e)}>Busca</button> 
                 </form>  
                 </div>
                 <div className="search-results">
-                    <p>Phrase: {collocation}</p>
-                    <p>Example: {example}</p>
+                    <p className="def-sections">Phrase</p>
+                    <p>{collocation}</p>
+                    <p className="def-sections">Example One</p>
+                    <p>{example}</p>
                         <button onClick={(e) => {saveCollocation1(e)}}>save first example</button>
-                    <p>Example: {exampleTwo}</p>
+                    <p className="def-sections">Example Two</p>
+                    <p>{exampleTwo}</p>
                         <button onClick={(e) => {saveCollocation2(e)}}>save second example</button>
                 </div>
             </section>
