@@ -1,4 +1,5 @@
 import axios from "axios";
+import env from "react-dotenv";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect, useContext } from 'react';
 import { VisitorContext } from '../context/VisitorContext';
@@ -13,7 +14,7 @@ const Collocations = () => {
     // fetch collocations saved by current logged in user
     const fetchCollocations = async (e) => {
         try {
-            let response = await axios.get(`http://localhost:3001/collocations/${user.id}`)
+            let response = await axios.get(`${env.REACT_APP_BACKEND_URL}/collocations/${user.id}`)
             setCollocationList(response.data.collocations)
         } catch (error) {
             console.log(error)
@@ -28,7 +29,7 @@ const Collocations = () => {
     // delete a specific collocation
     const deleteCollocation = async (collocationId) => {
         try {
-            await axios.delete(`http://localhost:3001/users/collocation/${collocationId}`, { 
+            await axios.delete(`${env.REACT_APP_BACKEND_URL}/users/collocation/${collocationId}`, { 
                 headers: { Authorization: user.id}
             })
             fetchCollocations();

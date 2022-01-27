@@ -1,7 +1,8 @@
+import axios from "axios";
+import env from 'react-dotenv';
+import NavBar from '../components/NavBar';            
 import { useContext, useState } from "react";
 import { VisitorContext } from "../context/VisitorContext";
-import NavBar from '../components/NavBar';            
-import axios from "axios";
 
 
 
@@ -56,7 +57,7 @@ const HomePage = () => {
     const saveCollocation1 = (e) => {
         e.preventDefault();
         const phrase = collocation;
-        axios.post(`http://localhost:3001/users/collocation`,  {
+        axios.post(`${env.REACT_APP_BACKEND_URL}/users/collocation`,  {
             word: palabra,
             phrase: phrase,
             example: example,
@@ -70,7 +71,7 @@ const HomePage = () => {
     const saveCollocation2 = (e) => {
         e.preventDefault();
         const phrase = collocation;
-        axios.post(`http://localhost:3001/users/collocation`,  {
+        axios.post(`${env.REACT_APP_BACKEND_URL}/users/collocation`,  {
             word: palabra,
             phrase: phrase,
             example: exampleTwo,
@@ -112,7 +113,7 @@ const HomePage = () => {
                     className="linguaTool"> 
                     <input 
                         type="text"
-                        placeholder="This API is currently down!"
+                        placeholder="Spanish collocations"
                         onChange={(e) => {setPalabra(e.target.value)}}
                         value={palabra}
                     />
@@ -122,14 +123,22 @@ const HomePage = () => {
                 </form>  
                 </div>
                 <div className="search-results">
-                    <p className="def-sections">Phrase</p>
-                    <p>{collocation}</p>
+                    <p className="def-sections">Collocation</p>
+                    <p className="definitions">{collocation}</p>
                     <p className="def-sections">Example One</p>
-                    <p>{example}</p>
-                        <button onClick={(e) => {saveCollocation1(e)}}>save first example</button>
+                    <p className="definitions">{example}</p>
+                        <button 
+                            className="save-button"
+                            onClick={(e) => {saveCollocation1(e)}}>
+                                save first example
+                        </button>
                     <p className="def-sections">Example Two</p>
-                    <p>{exampleTwo}</p>
-                        <button onClick={(e) => {saveCollocation2(e)}}>save second example</button>
+                    <p className="definitions">{exampleTwo}</p>
+                        <button 
+                            className="save-button"
+                            onClick={(e) => {saveCollocation2(e)}}>
+                                save second example
+                        </button>
                 </div>
             </section>
         </div>

@@ -1,13 +1,13 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { VisitorContext } from './context/VisitorContext';
-import CollocationPage from './pages/CollocationPage';
-import TitleBar from './components/TitleBar';
-import HomePage from './pages/HomePage';
-import Signup from './pages/SignupPage';
-import Login from './pages/LoginPage';
-import Footer from './components/Footer';
-import { useContext } from 'react';
 import './App.css';
+import CollocationPage from './pages/CollocationPage';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import Login from './pages/LoginPage';
+import { Routes, Route } from 'react-router-dom';
+import Signup from './pages/SignupPage';
+import TitleBar from './components/TitleBar';
+import { useContext } from 'react';
+import { VisitorContext } from './context/VisitorContext';
 
 function App() {
 

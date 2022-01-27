@@ -1,6 +1,5 @@
-import axios from 'axios';
-import NavBar from "../components/NavBar";
 import Collocations from "../components/Collocations";
+import NavBar from "../components/NavBar";
 
 const CollocationPage = () => { 
 

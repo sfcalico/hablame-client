@@ -1,6 +1,7 @@
-import { VisitorContext } from "../context/VisitorContext";
-import { useContext, useState } from "react";
 import axios from 'axios';
+import env from 'react-dotenv';
+import { useContext, useState } from "react";
+import { VisitorContext } from "../context/VisitorContext";
 
 const Signup = () => {
     
@@ -16,7 +17,7 @@ const Signup = () => {
     const submitForm = async (e) => {
         e.preventDefault();
         try {
-            let response = await axios.post(`http://localhost:3001/users/signup`, { name, email, password})
+            let response = await axios.post(`${env.REACT_APP_BACKEND_URL}/users/signup`, { name, email, password})
             console.log(response);
             localStorage.setItem('userId', response.data.newUser.id);
             setName(response.data.newUser.name);
@@ -30,8 +31,8 @@ const Signup = () => {
 
     return (
         <div>
-            <h3 className="welcomeMsg">Welcome to Háblame, a resource for beginner to intermediate students of Spanish.</h3>
-            <h5 className="intro">In addition to serving as an online English-Spanish dictionary, which doesn't make us special, we have integrated an API from Linguatools that looks up collocations - that's to say: idiomatic expressions - in Spanish. Maybe the translation you get from the dictionary is a little ambiguous, as often may be the case. Look up that word in the collocation database and get back phrases the word is used in and example sentences for full context. We hope you find this of use!</h5>
+            <h3>Welcome to Háblame, a resource for beginner to intermediate students of Spanish.</h3>
+            <h4 className='welcome-msg'>In addition to serving as an online English-Spanish dictionary, which doesn't make us special, we have integrated an API from Linguatools that looks up collocations - that's to say: idiomatic expressions - in Spanish. Maybe the translation you get from the dictionary is a little ambiguous, as often may be the case. Look up that word in the collocation database and get back phrases the word is used in and example sentences for full context. We hope you find this of use!</h4>
 
             <form onSubmit={submitForm} className="suli-form" >
                 <div>

@@ -1,6 +1,7 @@
-import { VisitorContext } from "../context/VisitorContext";
-import { useContext, useState } from "react";
 import axios from 'axios';
+import env from "react-dotenv";
+import { useContext, useState } from "react";
+import { VisitorContext } from "../context/VisitorContext";
 
 const Login = () => {
 
@@ -16,7 +17,7 @@ const Login = () => {
     const submitForm = async (e) => {
         e.preventDefault();
         try {
-            let response = await axios.post(`http://localhost:3001/users/login`,  { email, password })
+            let response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/login`,  { email, password })
             console.log(response);
             localStorage.setItem('userId', response.data.user.id);
             setName(response.data.user.name);

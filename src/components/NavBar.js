@@ -11,7 +11,7 @@ const NavBar = () => {
         // returns the nav element that appears on the left of all pages when a user is signed in
         <nav className="navBar">
             <ul className='navLinks'>
-                <li className='navLink welcome'>¡Bienvenido de nuevo, {name}!</li>
+                <li className='navLink welcome'>¡Bienvenido, {name}!</li>
                     <br />
                 <li className='navLink'>
                     <Link to="/collocations">Collocations</Link>
